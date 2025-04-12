@@ -7,8 +7,13 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to build and deploy'
+        description: 'Select branch to build and deploy'
         required: true
+        type: choice
+        options:
+          - main
+          - dev
+          - feature
         default: 'main'
 
 jobs:
@@ -34,8 +39,15 @@ jobs:
         env:
           BASE_HREF: /portfolio-app/
 
+      - name: Prepare files for deployment
+        run: |
+          mkdir -p deploy
+          cp -r dist/portfolio-app/browser/* deploy/
+          cp .nojekyll deploy/ || echo ".nojekyll not found, creating one"
+          touch deploy/.nojekyll
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/portfolio-app
+          publish_dir: ./deploy
