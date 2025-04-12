@@ -39,15 +39,23 @@ jobs:
         env:
           BASE_HREF: /portfolio-app/
 
+      - name: Verify build output
+        run: |
+          ls -R dist/portfolio-app
+          cat dist/portfolio-app/browser/index.html
+          test -f dist/portfolio-app/browser/favicon.ico && echo "favicon.ico exists" || echo "favicon.ico missing"
+
       - name: Prepare files for deployment
         run: |
           mkdir -p deploy
           cp -r dist/portfolio-app/browser/* deploy/
-          cp .nojekyll deploy/ || echo ".nojekyll not found, creating one"
           touch deploy/.nojekyll
+          ls -R deploy
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy
+          # Prevent conflicts with default workflow
+          force_orphan: true
