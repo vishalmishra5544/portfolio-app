@@ -1,0 +1,40 @@
+.career {
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .job {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-right: 2rem;
+        border: 3px solid #00b7ff;
+      }
+      .details {
+        flex: 1;
+        h3 {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          color: #555;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      .job {
+        flex-direction: column;
+        text-align: center;
+        img {
+          margin: 0 0 1rem;
+        }
+      }
+    }
+  }

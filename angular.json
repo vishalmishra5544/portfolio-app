@@ -17,6 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "outputPath": "dist/portfolio-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -35,6 +39,10 @@
                   "maximumError": "1mb"
                 }
               ],
+              "optimization": true,              
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
               "outputHashing": "all"
             },
             "development": {
