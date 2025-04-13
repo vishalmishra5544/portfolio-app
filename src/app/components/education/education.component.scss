@@ -1,0 +1,39 @@
+.education {
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .edu-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 1.5rem;
+      }
+      .details {
+        flex: 1;
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          color: #555;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      .edu-item {
+        flex-direction: column;
+        text-align: center;
+        img {
+          margin: 0 0 1rem;
+        }
+      }
+    }
+  }
