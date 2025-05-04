@@ -1,73 +1,350 @@
-.home {
+.resume-section {
+  background: linear-gradient(45deg, #1a2b49, #00b7ff);
+  color: white;
   text-align: center;
+  padding: 4rem 1rem;
+
+  .resume-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #00b7ff;
+      }
+
+      .profile-text {
+        text-align: left;
+        flex: 1;
+
+        h2 {
+          font-size: 2.2rem;
+          margin-bottom: 0.5rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+          color: #00b7ff;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .resume-links {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    .resume-content {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+
+        .profile-img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .profile-text {
+          text-align: center;
+
+          h2 {
+            font-size: 1.8rem;
+          }
+
+          h3 {
+            font-size: 1.4rem;
+          }
+
+          p {
+            font-size: 1rem;
+          }
+
+          .resume-links {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.timeline-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa; // Light modern background
+  min-height: 100vh; // Ensure enough height for scrolling
+
   h2 {
     font-size: 2.5rem;
+    text-align: center;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: #1a2b49;
   }
+
   .intro {
     font-size: 1.2rem;
+    text-align: center;
     max-width: 800px;
     margin: 0 auto 2rem;
-    color: #333;
+    color: #6c757d;
   }
-  .timeline {
+
+  .timeline-wrapper {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 0;
-    &:before {
-      content: '';
+    min-height: 100vh; // Ensure scrollable area
+
+    .timeline-line {
       position: absolute;
-      left: 50%;
       top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #00b7ff;
+      left: 50%;
       transform: translateX(-50%);
+      width: 4px;
+      height: 100%; // Span the entire timeline
+      background: #e9ecef; // Light gray base
+      z-index: 1;
+
+      .progress-bar {
+        width: 100%;
+        height: 0;
+        background: linear-gradient(180deg, #00b7ff, #ff6b6b); // Modern gradient (vertical)
+        transition: height 0.5s ease-out; // Smooth fill animation
+      }
     }
-    .timeline-item {
+
+    .timeline {
       display: flex;
-      align-items: center;
-      margin-bottom: 2rem;
+      flex-direction: column;
+      gap: 4rem;
+      padding: 2rem 0;
       position: relative;
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 1rem;
-        object-fit: cover;
-      }
-      .content {
-        background: white;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        width: 45%;
-        &:before {
-          content: '';
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          background: #00b7ff;
-          border-radius: 50%;
-          left: 50%;
-          transform: translateX(-50%);
+      z-index: 2;
+
+      .timeline-item {
+        position: relative;
+        opacity: 0; // Initially hidden for animation
+        transition: opacity 0.3s ease;
+
+        &.visible {
+          opacity: 1; // Show when in viewport
+
+          .milestone-dot {
+            animation: pulse 1.5s infinite; // Pulsing dot animation
+          }
         }
-      }
-      &:nth-child(odd) {
-        justify-content: flex-start;
-        .content {
-          margin-right: auto;
+
+        .card {
+          width: 600px; // Increased width
+          height: 250px; // Increased height to show all content
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+          padding: 1.5rem;
+          display: flex;
+          align-items: center;
+          position: relative;
+          transition: transform 0.3s ease;
+          transform: translateX(30px); // Final position shifted to the right for centering
+
+          .milestone {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .milestone-dot {
+              width: 16px;
+              height: 16px;
+              background: #00b7ff;
+              border-radius: 50%;
+              box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+              z-index: 3;
+            }
+
+            .milestone-connector {
+              display: none; // Hidden by default
+              position: absolute;
+              left: 50%;
+              top: 100%; // Start at the bottom of the dot
+              width: 2px;
+              height: calc(100% + 4rem); // Match the gap between items
+              background: #00b7ff;
+              transform: translateX(-50%);
+              z-index: 2;
+            }
+
+            .milestone-date {
+              font-size: 0.9rem;
+              color: #1a2b49;
+              margin-top: 0.5rem;
+              font-weight: 600;
+              background: rgba(255, 255, 255, 0.9);
+              padding: 0.3rem 0.6rem;
+              border-radius: 12px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          .card-content {
+            margin-left: 60px; // Space for the milestone
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .card-header {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              margin-bottom: 1rem;
+
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid #00b7ff;
+              }
+
+              h3 {
+                font-size: 1.4rem;
+                color: #1a2b49;
+                margin: 0;
+              }
+            }
+
+            .card-body {
+              p {
+                font-size: 0.95rem;
+                color: #6c757d;
+                line-height: 1.5;
+              }
+            }
+          }
+
+          &:hover {
+            transform: translateX(40px); // Slightly more on hover
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+          }
         }
-      }
-      &:nth-child(even) {
-        justify-content: flex-end;
-        .content {
-          margin-left: auto;
+
+        &:not(:last-child) {
+          .card .milestone-connector {
+            display: block; // Show connector except for the last item
+          }
         }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    .timeline-wrapper {
+      .timeline {
+        gap: 3rem;
+
+        .timeline-item {
+          .card {
+            width: 100%;
+            height: 280px; // Slightly taller on mobile
+            padding: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+            transform: none; // No additional shift on mobile
+
+            .milestone {
+              position: relative;
+              left: 0;
+              top: 0;
+              transform: none;
+              margin-bottom: 1rem;
+
+              .milestone-dot {
+                width: 12px;
+                height: 12px;
+              }
+
+              .milestone-connector {
+                left: 6px; // Center under smaller dot
+                top: 12px;
+                height: calc(100% + 3rem); // Match mobile gap
+              }
+
+              .milestone-date {
+                font-size: 0.8rem;
+              }
+            }
+
+            .card-content {
+              margin-left: 0;
+              width: 100%;
+
+              .card-header {
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+
+                h3 {
+                  font-size: 1.2rem;
+                }
+              }
+
+              .card-body {
+                p {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+
+            &:hover {
+              transform: translateX(0); // No hover shift on mobile
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 183, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 183, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 183, 255, 0);
   }
 }
