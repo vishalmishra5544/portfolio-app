@@ -4,11 +4,10 @@
       <img src="assets/images/profile.jpg" alt="Vishal Mishra" class="profile-img">
       <div class="profile-text">
         <h2>Vishal Mishra</h2>
-        <h3>Software Engineer & AI Innovator</h3>
+        <h3>Software Engineer & AI/ML Enthusiast</h3>
         <p>
-          Crafting impactful solutions in Mumbai with Java, .NET, Angular, and AI (YOLO, Flask) at TSS Consultancy. Built APIs, SDKs, and computer vision systems, backed by a B.E. with 9.6 GPA.
+          I’m a Software Engineer with a knack for crafting scalable, cutting-edge solutions 🧑‍💻, backed by solid experience in modern tech stacks. I bring a strong foundation 🚀 in Core Computer Science, System Design, Data Structures, and Algorithms, paired with a growing expertise in AI/ML 🤖. Oh, and I secured AIR 3112 in GATE-CS-2022 during my third year of Computer Engineering 💪. Stick around, explore my repos 📂, and let’s geek out over code together! 🤝
         </p>
-        <br/>
         <div class="resume-links">
           <a href="assets/Vishal_Mishra_Resume.pdf" download class="btn">Download Resume</a>
           <a href="https://linkedin.com/in/vishal-mishra-30219917a" target="_blank" class="btn">LinkedIn</a>
@@ -21,48 +20,29 @@
 
 <section class="timeline-section">
   <h2>My Journey</h2>
-  <p class="intro">From academic excellence to AI-driven development, here’s my story:</p>
-  <div class="timeline" @timelineAnimation>
-    <div class="timeline-item card">
-      <img src="assets/images/school.jpg" alt="School">
-      <div class="content">
-        <h3>2016-2017: High School</h3>
-        <p>Excelled with 93.20% at Manav Mandir High School, Mumbai.</p>
-      </div>
+  <p class="intro">Scroll through the milestones that shaped my career:</p>
+  <div class="timeline-wrapper" #timelineWrapper>
+    <div class="timeline-line">
+      <div class="progress-bar"></div>
     </div>
-    <div class="timeline-item card">
-      <img src="assets/images/college.jpg" alt="College">
-      <div class="content">
-        <h3>2018-2019: Junior College</h3>
-        <p>Scored 79.38% at Navneet Jr. College, Mumbai.</p>
-      </div>
-    </div>
-    <div class="timeline-item card">
-      <img src="assets/images/university.jpg" alt="University">
-      <div class="content">
-        <h3>2019-2023: B.E. Computer Engineering</h3>
-        <p>Graduated with 9.6 GPA from Atharva College, Mumbai.</p>
-      </div>
-    </div>
-    <div class="timeline-item card">
-      <img src="assets/images/intern.jpg" alt="Intern">
-      <div class="content">
-        <h3>2023: Internship at TSS Consultancy</h3>
-        <p>Built .NET WinForms apps with SQL Server.</p>
-      </div>
-    </div>
-    <div class="timeline-item card">
-      <img src="assets/images/job.jpg" alt="Job">
-      <div class="content">
-        <h3>2023-Present: Software Engineer</h3>
-        <p>Developed .NET APIs and Angular frontends at TSS Consultancy.</p>
-      </div>
-    </div>
-    <div class="timeline-item card">
-      <img src="assets/images/ai.jpg" alt="AI">
-      <div class="content">
-        <h3>2024-Present: AI Engineer</h3>
-        <p>Created computer vision APIs with YOLO and Flask.</p>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let item of timelineData" #timelineItem>
+        <div class="card" @timelineAnimation>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-connector"></div>
+            <div class="milestone-date">{{ item.date | date:'MMM yyyy' }}</div>
+          </div>
+          <div class="card-content">
+            <div class="card-header">
+              <img [src]="'assets/images/' + item.img" [alt]="item.title">
+              <h3>{{ item.title }}</h3>
+            </div>
+            <div class="card-body">
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

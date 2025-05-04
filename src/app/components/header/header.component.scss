@@ -10,21 +10,43 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0 2rem;
-      color: #8a2be2; // Violet color for better visibility
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+        color: #8a2be2;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 101;
+
+        .hamburger {
+          display: block;
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
 
     ul {
-      display: flex;
-      gap: 2rem;
       list-style: none;
       margin: 0;
+      padding: 0;
 
       li {
         a {
@@ -46,25 +68,45 @@ header {
         }
       }
     }
+
+    .desktop-menu {
+      display: flex;
+      gap: 2rem;
+      margin-left: 2rem; // Space between name and options
+    }
+
+    .mobile-menu {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
     nav {
       flex-direction: column;
-      gap: 1rem;
-      text-align: center;
+      align-items: flex-start;
 
-      h1 {
-        margin: 0;
+      .nav-header {
+        .menu-toggle {
+          display: block; // Show hamburger menu on mobile
+        }
       }
 
-      ul {
+      .desktop-menu {
+        display: none; // Hide desktop menu on mobile
+      }
+
+      .mobile-menu {
+        display: flex;
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        background: #1a2b49;
+        padding: 1rem 0;
 
         li {
           width: 100%;
+          text-align: center;
+
           a {
             display: block;
             padding: 0.8rem 1rem;
