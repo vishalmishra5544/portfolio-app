@@ -20,8 +20,8 @@
       margin: 0 auto;
 
       .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid #00b7ff;
@@ -66,8 +66,8 @@
         gap: 1.5rem;
 
         .profile-img {
-          width: 100px;
-          height: 100px;
+          width: 180px;
+          height: 180px;
         }
 
         .profile-text {
@@ -141,7 +141,7 @@
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 5rem; // Increased gap to account for milestone above card
       padding: 2rem 0;
       position: relative;
       z-index: 2;
@@ -150,6 +150,9 @@
         position: relative;
         opacity: 0; // Initially hidden for animation
         transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         &.visible {
           opacity: 1; // Show when in viewport
@@ -159,9 +162,52 @@
           }
         }
 
+        .milestone {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1rem; // Space between milestone and card
+
+          .milestone-dot {
+            width: 16px;
+            height: 16px;
+            background: #00b7ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+            z-index: 3;
+          }
+
+          .milestone-connector {
+            display: none; // Hidden by default
+            position: absolute;
+            left: 50%;
+            top: 100%; // Start at the bottom of the dot
+            width: 2px;
+            height: calc(100% + 5rem); // Match the gap between items
+            background: #00b7ff;
+            transform: translateX(-50%);
+            z-index: 2;
+
+            &.hidden {
+              display: none; // Hide for the last item
+            }
+          }
+
+          .milestone-date {
+            font-size: 0.9rem;
+            color: #1a2b49;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+        }
+
         .card {
-          width: 600px; // Increased width
-          height: 250px; // Increased height to show all content
+          width: 800px; // Adjusted to match CareerComponent
+          height: 250px; // Match original height
           background: white;
           border-radius: 12px;
           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -169,53 +215,8 @@
           display: flex;
           align-items: center;
           position: relative;
-          transition: transform 0.3s ease;
-          transform: translateX(30px); // Final position shifted to the right for centering
-
-          .milestone {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .milestone-dot {
-              width: 16px;
-              height: 16px;
-              background: #00b7ff;
-              border-radius: 50%;
-              box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
-              z-index: 3;
-            }
-
-            .milestone-connector {
-              display: none; // Hidden by default
-              position: absolute;
-              left: 50%;
-              top: 100%; // Start at the bottom of the dot
-              width: 2px;
-              height: calc(100% + 4rem); // Match the gap between items
-              background: #00b7ff;
-              transform: translateX(-50%);
-              z-index: 2;
-            }
-
-            .milestone-date {
-              font-size: 0.9rem;
-              color: #1a2b49;
-              margin-top: 0.5rem;
-              font-weight: 600;
-              background: rgba(255, 255, 255, 0.9);
-              padding: 0.3rem 0.6rem;
-              border-radius: 12px;
-              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-          }
 
           .card-content {
-            margin-left: 60px; // Space for the milestone
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -228,8 +229,8 @@
               margin-bottom: 1rem;
 
               img {
-                width: 60px;
-                height: 60px;
+                width: 80px; // Adjusted to match CareerComponent
+                height: 80px; // Adjusted to match CareerComponent
                 border-radius: 50%;
                 object-fit: cover;
                 border: 3px solid #00b7ff;
@@ -247,19 +248,15 @@
                 font-size: 0.95rem;
                 color: #6c757d;
                 line-height: 1.5;
+                max-height: 120px; // Prevent overflow
+                overflow-y: auto; // Scroll if content exceeds height
               }
             }
           }
 
           &:hover {
-            transform: translateX(40px); // Slightly more on hover
+            transform: translateY(-5px); // Vertical hover effect
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-          }
-        }
-
-        &:not(:last-child) {
-          .card .milestone-connector {
-            display: block; // Show connector except for the last item
           }
         }
       }
@@ -271,48 +268,40 @@
 
     .timeline-wrapper {
       .timeline {
-        gap: 3rem;
+        gap: 4rem; // Adjusted for mobile
 
         .timeline-item {
+          .milestone {
+            .milestone-dot {
+              width: 12px;
+              height: 12px;
+            }
+
+            .milestone-connector {
+              left: 6px; // Center under smaller dot
+              top: 12px;
+              height: calc(100% + 4rem); // Match mobile gap
+            }
+
+            .milestone-date {
+              font-size: 0.8rem;
+            }
+          }
+
           .card {
             width: 100%;
-            height: 280px; // Slightly taller on mobile
+            height: 280px; // Match original mobile height
             padding: 1rem;
             flex-direction: column;
             align-items: flex-start;
-            transform: none; // No additional shift on mobile
-
-            .milestone {
-              position: relative;
-              left: 0;
-              top: 0;
-              transform: none;
-              margin-bottom: 1rem;
-
-              .milestone-dot {
-                width: 12px;
-                height: 12px;
-              }
-
-              .milestone-connector {
-                left: 6px; // Center under smaller dot
-                top: 12px;
-                height: calc(100% + 3rem); // Match mobile gap
-              }
-
-              .milestone-date {
-                font-size: 0.8rem;
-              }
-            }
 
             .card-content {
-              margin-left: 0;
               width: 100%;
 
               .card-header {
                 img {
-                  width: 50px;
-                  height: 50px;
+                  width: 60px; // Adjusted to match CareerComponent
+                  height: 60px; // Adjusted to match CareerComponent
                 }
 
                 h3 {

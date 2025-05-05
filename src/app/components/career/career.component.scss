@@ -1,40 +1,248 @@
 .career {
-    h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
+  padding: 4rem 1rem;
+  background: #f8f9fa; // Light modern background
+  min-height: 100vh; // Ensure enough height for scrolling
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a2b49;
+  }
+
+  .career-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh; // Ensure scrollable area
+
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%; // Span the entire timeline
+      background: #e9ecef; // Light gray base
+      z-index: 1;
+
+      .progress-bar {
+        width: 100%;
+        height: 0;
+        background: linear-gradient(180deg, #00b7ff, #ff6b6b); // Modern gradient (vertical)
+        transition: height 0.5s ease-out; // Smooth fill animation
+      }
     }
-    .job {
+
+    .timeline {
       display: flex;
-      align-items: center;
-      margin-bottom: 2rem;
-      img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 12px;
-        margin-right: 2rem;
-        border: 3px solid #00b7ff;
-      }
-      .details {
-        flex: 1;
-        h3 {
-          font-size: 1.6rem;
-          margin-bottom: 0.5rem;
-        }
-        p {
-          color: #555;
-          margin: 0.5rem 0;
-        }
-      }
-    }
-    @media (max-width: 768px) {
-      .job {
+      flex-direction: column;
+      gap: 5rem; // Increased gap to account for milestone above card
+      padding: 2rem 0;
+      position: relative;
+      z-index: 2;
+
+      .timeline-item {
+        position: relative;
+        opacity: 0; // Initially hidden for animation
+        transition: opacity 0.3s ease;
+        display: flex;
         flex-direction: column;
-        text-align: center;
-        img {
-          margin: 0 0 1rem;
+        align-items: center;
+
+        &.visible {
+          opacity: 1; // Show when in viewport
+
+          .milestone-dot {
+            animation: pulse 1.5s infinite; // Pulsing dot animation
+          }
+        }
+
+        .milestone {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1rem; // Space between milestone and card
+
+          .milestone-dot {
+            width: 16px;
+            height: 16px;
+            background: #00b7ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+            z-index: 3;
+          }
+
+          .milestone-connector {
+            display: none; // Hidden by default
+            position: absolute;
+            left: 50%;
+            top: 100%; // Start at the bottom of the dot
+            width: 2px;
+            height: calc(100% + 5rem); // Match the gap between items
+            background: #00b7ff;
+            transform: translateX(-50%);
+            z-index: 2;
+
+            &.hidden {
+              display: none; // Hide for the last item
+            }
+          }
+
+          .milestone-date {
+            font-size: 0.9rem;
+            color: #1a2b49;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        .card {
+          width: 800px; // Match HomeComponent
+          height: 280px; // Match previous adjustment
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+          padding: 1.5rem;
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .card-header {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              margin-bottom: 1rem;
+
+              img {
+                width: 80px; // Match previous adjustment
+                height: 80px; // Match previous adjustment
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid #00b7ff;
+              }
+
+              h3 {
+                font-size: 1.4rem;
+                color: #1a2b49;
+                margin: 0;
+              }
+            }
+
+            .card-body {
+              ul {
+                list-style-type: disc;
+                padding-left: 1.5rem;
+                margin: 0.5rem 0;
+                max-height: 140px; // Match previous adjustment
+                overflow-y: auto; // Scroll if content exceeds height
+
+                li {
+                  font-size: 0.95rem;
+                  color: #6c757d;
+                  margin-bottom: 0.5rem;
+                  line-height: 1.5;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            transform: translateY(-5px); // Vertical hover effect
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+          }
         }
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    .career-wrapper {
+      .timeline-line {
+        left: 30px; // Align with smaller dots on mobile
+      }
+
+      .timeline {
+        gap: 4rem; // Adjusted for mobile
+
+        .timeline-item {
+          .milestone {
+            .milestone-dot {
+              width: 12px;
+              height: 12px;
+            }
+
+            .milestone-connector {
+              left: 6px; // Center under smaller dot
+              top: 12px;
+              height: calc(100% + 4rem); // Match mobile gap
+            }
+
+            .milestone-date {
+              font-size: 0.8rem;
+            }
+          }
+
+          .card {
+            width: 100%;
+            height: 300px; // Match previous adjustment
+            padding: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .card-content {
+              width: 100%;
+
+              .card-header {
+                img {
+                  width: 60px; // Match previous adjustment
+                  height: 60px; // Match previous adjustment
+                }
+
+                h3 {
+                  font-size: 1.2rem;
+                }
+              }
+
+              .card-body {
+                ul {
+                  li {
+                    font-size: 0.9rem;
+                  }
+                }
+              }
+            }
+
+            &:hover {
+              transform: none; // No hover shift on mobile
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 183, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 183, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 183, 255, 0);
+  }
+}

@@ -1,35 +1,30 @@
 <section class="career">
-    <h2>My Career</h2>
-    <div class="job card" @cardAnimation>
-      <img src="assets/images/tsslogo.jpg" alt="AI Job">
-      <div class="details">
-        <h3>Associate Software Engineer-AI, TSS Consultancy</h3>
-        <p><strong>08/2024-Present, Mumbai</strong></p>
-        <p>Developed Desktop based applications from scratch using WinForm in
-          c#,.Net with Sql Server Database connection,excel/pdf
-          generation.etc</p>
+  <h2>My Career</h2>
+  <div class="career-wrapper" #careerWrapper>
+    <div class="timeline-line">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let role of roles; let last = last" #timelineItem>
+        <div class="milestone">
+          <div class="milestone-dot"></div>
+          <div class="milestone-connector" [class.hidden]="last"></div>
+          <div class="milestone-date">{{ role.date }}</div>
+        </div>
+        <div class="card" @timelineAnimation>
+          <div class="card-content">
+            <div class="card-header">
+              <img src="assets/images/tsslogo.jpg" alt="TSS Consultancy">
+              <h3>{{ role.title }}</h3>
+            </div>
+            <div class="card-body">
+              <ul>
+                <li *ngFor="let point of role.description">{{ point }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="job card" @cardAnimation>
-      <img src="assets/images/tsslogo.jpg" alt="Software Job">
-      <div class="details">
-        <h3>Associate Software Engineer, TSS Consultancy</h3>
-        <p><strong>05/2023-08/2024, Mumbai</strong></p>
-        <p>→ Worked on BackEnd side with major focus on .Net Core based APIs creation along side with Sql server, Angular,Typescript & desktop application with Win Forms UI. 
-          → Developed DotNet based APIs along with integration in frontend web application. 
-          → Created SDKs for various APIs with Authentication,Encryption/Decryption,Bulk Request Processing.etc</p>
-      </div>
-    </div>
-    <div class="job card" @cardAnimation>
-      <img src="assets/images/tsslogo.jpg" alt="Intern">
-      <div class="details">
-        <h3>Intern, TSS Consultancy</h3>
-        <p><strong>01/2023-04/2023, Mumbai</strong></p>
-        <p>→ Working on Computer Vision based APIs for Digital Customer Onboarding journey tasks involving classification and parsing data extracted via OCR from Aadhaar , Pan, Passport, Driving License (OVD/Government Issued Id) Cards with backend in Multi-Tenant architecture based Java SpringBoot application that consumes flask AI APIs. 
-          → Integrated photo match and extraction libraries in AI APIs that enables extraction and comparing human photo in OVD/Government Issued Id cards with individual image of person.
-          → Integrated Whatsapp Business API to enable a digital customer onboarding journey via a Whatsapp Bot application and deployed the Dockerized app container in Azure Kubernetes Service(AKS).
-          → Developed multiple real time Web Scraping based systems to fetch public available data and provided APIs to consume them.
-          → Integrated third parties like Digilocker for document fetch, NPCI (tied up with UIDAI) for Aadhaar Based Authentication journey for user Digital Onboarding Systems.</p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
