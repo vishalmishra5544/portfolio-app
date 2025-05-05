@@ -20,8 +20,8 @@
       margin: 0 auto;
 
       .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 200px; // Increased from 120px
+        height: 200px; // Increased from 120px
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid #00b7ff;
@@ -66,8 +66,8 @@
         gap: 1.5rem;
 
         .profile-img {
-          width: 100px;
-          height: 100px;
+          width: 180px; // Increased from 100px
+          height: 180px; // Increased from 100px
         }
 
         .profile-text {
@@ -160,7 +160,7 @@
         }
 
         .card {
-          width: 600px; // Increased width
+          width: 800px; // Increased width
           height: 250px; // Increased height to show all content
           background: white;
           border-radius: 12px;
@@ -228,8 +228,8 @@
               margin-bottom: 1rem;
 
               img {
-                width: 60px;
-                height: 60px;
+                width: 120px; // Increased from 60px
+                height: 120px; // Increased from 60px
                 border-radius: 50%;
                 object-fit: cover;
                 border: 3px solid #00b7ff;
@@ -311,8 +311,8 @@
 
               .card-header {
                 img {
-                  width: 50px;
-                  height: 50px;
+                  width: 150px; // Increased from 50px
+                  height: 150px; // Increased from 50px
                 }
 
                 h3 {
