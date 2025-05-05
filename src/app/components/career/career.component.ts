@@ -27,6 +27,11 @@ export class CareerComponent implements AfterViewInit {
       title: 'Associate Software Engineer-AI',
       description: [
         'Developed computer vision APIs with YOLO and Flask alongside Java Backend systems.',
+        'Worked on Computer Vision based APIs for Digital Customer Onboarding journey tasks involving classification and parsing data extracted via OCR from Aadhaar, Pan, Passport, Driving License (OVD/Government Issued Id) Cards with backend in Multi-Tenant architecture based Java SpringBoot application that consumes flask AI APIs.',
+        'Integrated photo match and extraction libraries in AI APIs that enables extraction and comparing human photo in OVD/Government Issued Id cards with individual image of person.',
+        'Integrated Whatsapp Business API to enable a digital customer onboarding journey via a Whatsapp Bot application and deployed the Dockerized app container in Azure Kubernetes Service(AKS).',
+        'Developed multiple real time Web Scraping based systems to fetch public available data and provided APIs to consume them.',
+        'Integrated third parties like Digilocker for document fetch, NPCI (tied up with UIDAI) for Aadhaar Based Authentication journey for user Digital Onboarding Systems.',
       ],
     },
     {
@@ -42,11 +47,9 @@ export class CareerComponent implements AfterViewInit {
       date: '01/2023-04/2023',
       title: 'Software Engineer Intern',
       description: [
-        'Worked on Computer Vision based APIs for Digital Customer Onboarding journey tasks involving classification and parsing data extracted via OCR from Aadhaar, Pan, Passport, Driving License (OVD/Government Issued Id) Cards with backend in Multi-Tenant architecture based Java SpringBoot application that consumes flask AI APIs.',
-        'Integrated photo match and extraction libraries in AI APIs that enables extraction and comparing human photo in OVD/Government Issued Id cards with individual image of person.',
-        'Integrated Whatsapp Business API to enable a digital customer onboarding journey via a Whatsapp Bot application and deployed the Dockerized app container in Azure Kubernetes Service(AKS).',
-        'Developed multiple real time Web Scraping based systems to fetch public available data and provided APIs to consume them.',
-        'Integrated third parties like Digilocker for document fetch, NPCI (tied up with UIDAI) for Aadhaar Based Authentication journey for user Digital Onboarding Systems.',
+        'Developed Desktop based applications from scratch using WinForm in c#,.Net',
+        'Integrated with Sql Server Database connection',
+        'Generated outputs via excel/pdf.etc for visualization of data.',
       ],
     },
   ];
