@@ -42,4 +42,9 @@ export class HeaderComponent {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  // Add a method to handle the name click
+  onNameClick() {
+    this.setActiveLink('home');
+  }
 }
