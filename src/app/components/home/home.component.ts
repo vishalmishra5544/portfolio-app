@@ -1,11 +1,12 @@
 import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // Import RouterModule
 import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule], // Add RouterModule to imports
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
@@ -30,12 +31,12 @@ export class HomeComponent implements AfterViewInit {
   timelineData = [
     { date: '2016-06-01', title: '2016-2017: High School', description: 'Excelled with 93.20% at Manav Mandir High School, Mumbai.', img: 'school.jpg' },
     { date: '2018-06-01', title: '2018-2019: Junior College', description: 'Scored 79.38% in Science Stream with 92% in Mathematics at Navneet Jr. College, Mumbai.', img: 'college.jpg' },
-    { date: '2016-06-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams like JEE-Mains,MHT-CET.', img: 'examlogo.jpg' },
-    { date: '2019-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College(Affliated to Mumbai University), Mumbai.', img: 'university.jpg' },
+    { date: '2016-06-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams like JEE-Mains, MHT-CET.', img: 'examlogo.jpg' },
+    { date: '2019-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College (Affiliated to Mumbai University), Mumbai.', img: 'university.jpg' },
     { date: '2016-06-01', title: '2022: Cleared GATE-CS Exam', description: 'Cleared GATE-CS exam and secured AIR-3112 during my 3rd year of College.', img: 'gatelogo.jpg' },
-    { date: '2023-01-01', title: '01/2023-04/2023: Software Engineer Intern at TSS Consultancy', description: 'Steped into industry level development and developed Desktop based applications from scratch using WinForm in C#,.NET with SQL Server Database connection, Excel/PDF generation, etc.', img: 'tsslogo.jpg' },
+    { date: '2023-01-01', title: '01/2023-04/2023: Software Engineer Intern at TSS Consultancy', description: 'Stepped into industry-level development and developed Desktop based applications from scratch using WinForm in C# and .NET with SQL Server Database connection, Excel/PDF generation, etc.', img: 'tsslogo.jpg' },
     { date: '2023-05-01', title: '05/2023-08/2024: Associate Software Engineer at TSS Consultancy', description: 'Gained more exposure in RESTful APIs development and crafted multiple backend .NET APIs and Angular frontend applications at TSS Consultancy.', img: 'tsslogo.jpg' },
-    { date: '2024-08-01', title: '08/2024-Present: Associate Software Engineer-AI at TSS Consultancy', description: 'Entered AI domain to fulfill organization need for AI based APIs and developed computer vision APIs with YOLO and Flask alongside Java Backend systems.', img: 'tsslogo.jpg' },
+    { date: '2024-08-01', title: '08/2024-Present: Associate Software Engineer-AI at TSS Consultancy', description: 'Entered AI domain to fulfill organization need for AI-based APIs and developed computer vision APIs with YOLO and Flask alongside Java Backend systems.', img: 'tsslogo.jpg' },
   ];
 
   constructor(private renderer: Renderer2) {}

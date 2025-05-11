@@ -34,6 +34,16 @@
         h2 {
           font-size: 2.2rem;
           margin-bottom: 0.5rem;
+
+          a {
+            color: inherit; // Match the h2 color (default #1a1a1a from .resume-content)
+            text-decoration: none; // Remove underline
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: #00b7ff; // Match the h3 color on hover for consistency
+            }
+          }
         }
 
         h3 {
@@ -206,8 +216,8 @@
         }
 
         .card {
-          width: 800px; // Adjusted to match CareerComponent
-          height: 250px; // Match original height
+          width: 800px; // Match CareerComponent
+          height: 280px; // Match CareerComponent
           background: white;
           border-radius: 12px;
           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -229,8 +239,8 @@
               margin-bottom: 1rem;
 
               img {
-                width: 80px; // Adjusted to match CareerComponent
-                height: 80px; // Adjusted to match CareerComponent
+                width: 80px; // Match CareerComponent
+                height: 80px; // Match CareerComponent
                 border-radius: 50%;
                 object-fit: cover;
                 border: 3px solid #00b7ff;
@@ -248,8 +258,11 @@
                 font-size: 0.95rem;
                 color: #6c757d;
                 line-height: 1.5;
-                max-height: 120px; // Prevent overflow
+                max-height: 140px; // Match CareerComponent's ul max-height
                 overflow-y: auto; // Scroll if content exceeds height
+                margin: 0.5rem 0; // Match CareerComponent's ul margin
+                padding-right: 0.5rem; // Space for scrollbar
+                box-sizing: border-box; // Prevent padding from causing overflow
               }
             }
           }
@@ -290,28 +303,49 @@
 
           .card {
             width: 100%;
-            height: 280px; // Match original mobile height
+            height: 300px; // Match CareerComponent
             padding: 1rem;
+            display: flex;
             flex-direction: column;
             align-items: flex-start;
 
             .card-content {
               width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start; // Align content at the top
 
               .card-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 0.5rem; // Reduced margin to fit content
+
                 img {
-                  width: 60px; // Adjusted to match CareerComponent
-                  height: 60px; // Adjusted to match CareerComponent
+                  width: 60px; // Match CareerComponent
+                  height: 60px; // Match CareerComponent
+                  flex-shrink: 0; // Prevent image from shrinking
                 }
 
                 h3 {
                   font-size: 1.2rem;
+                  flex-grow: 1; // Allow h3 to take available space
                 }
               }
 
               .card-body {
+                flex-grow: 1; // Allow card-body to take remaining space
+                display: flex;
+                flex-direction: column;
+
                 p {
                   font-size: 0.9rem;
+                  line-height: 1.4;
+                  max-height: 160px; // Match CareerComponent's mobile ul max-height
+                  overflow-y: auto; // Enable scrolling for large texts
+                  margin: 0.5rem 0; // Match CareerComponent's ul margin
+                  padding-right: 0.5rem; // Add padding for scrollbar
+                  box-sizing: border-box; // Ensure padding doesn't cause overflow
                 }
               }
             }

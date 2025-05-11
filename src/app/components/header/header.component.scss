@@ -24,7 +24,16 @@ header {
         font-size: 1.8rem;
         font-weight: 700;
         margin: 0;
-        color: #8a2be2;
+
+        a {
+          color: #8a2be2; // Match the existing h1 color
+          text-decoration: none; // Remove underline
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #00b7ff; // Match the active link color on hover
+          }
+        }
       }
 
       .menu-toggle {

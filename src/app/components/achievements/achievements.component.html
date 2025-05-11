@@ -1,25 +1,101 @@
-<section class="achievements" @gridAnimation>
-    <h2>My Achievements</h2>
-    <div class="achievement-grid">
-      <div class="achievement card">
-        <img src="assets/images/api.jpg" alt="API">
-        <h3>Built Major APIs</h3>
-        <p>Created two .NET Core APIs from scratch, integrated with Angular frontends for seamless functionality.</p>
+<section class="achievements">
+  <h2>My Achievements</h2>
+  <div class="achievement-grid">
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[0] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(0, true)"
+         (mouseleave)="setHoverState(0, false)"
+         (touchstart)="setHoverState(0, true)"
+         (touchend)="setHoverState(0, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/softwareengineering.png" alt="Job Offers" class="spin-on-hover">
       </div>
-      <div class="achievement card">
-        <img src="assets/images/ai-model.jpg" alt="AI Model">
-        <h3>Trained YOLO Classifiers</h3>
-        <p>Fine-tuned YOLO models for OVD card classification, powering customer onboarding APIs.</p>
-      </div>
-      <div class="achievement card">
-        <img src="assets/images/sdk.jpg" alt="SDK">
-        <h3>Developed SDKs</h3>
-        <p>Built SDKs with authentication, encryption, and bulk processing, enhancing API usability.</p>
-      </div>
-      <div class="achievement card">
-        <img src="assets/images/education.jpg" alt="Education">
-        <h3>Academic Excellence</h3>
-        <p>Achieved a 9.6 GPA in B.E. Computer Engineering, ranking among top performers.</p>
-      </div>
+      <h3>Secured 4 Software Engineering Offers</h3>
+      <p>Earned offers from TSS Consultancy, MindStix, HexaWare, and TCS for Software Engineering roles.</p>
     </div>
-  </section>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[1] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(1, true)"
+         (mouseleave)="setHoverState(1, false)"
+         (touchstart)="setHoverState(1, true)"
+         (touchend)="setHoverState(1, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/graduation.jpg" alt="Graduation completed" class="spin-on-hover">
+      </div>
+      <h3>Graduated with a 9.6 GPA in B.E in Computer Engineering from Mumbai University</h3>
+      <p>Completed B.E. in Computer Engineering (2019-2023) with a consistent 9.6 GPA across all semesters from Atharva College of Engineering affliated with Mumbai University.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[2] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(2, true)"
+         (mouseleave)="setHoverState(2, false)"
+         (touchstart)="setHoverState(2, true)"
+         (touchend)="setHoverState(2, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/gatelogo.jpg" alt="GATE" class="spin-on-hover">
+      </div>
+      <h3>Secured AIR-3112 in GATE-CS 2022</h3>
+      <p>Achieved All India Rank 3112 in GATE-Computer Science during my third year of B.E. in 2022.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[3] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(3, true)"
+         (mouseleave)="setHoverState(3, false)"
+         (touchstart)="setHoverState(3, true)"
+         (touchend)="setHoverState(3, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/programming.jpg" alt="Programming" class="spin-on-hover">
+      </div>
+      <h3>Solved 500+ Programming DSA Problems</h3>
+      <p>Completed over 500 DSA problems on platforms like GeeksForGeeks, LeetCode, CodeForces, CodeChef, and HackerRank.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[4] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(4, true)"
+         (mouseleave)="setHoverState(4, false)"
+         (touchstart)="setHoverState(4, true)"
+         (touchend)="setHoverState(4, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/gfglogo.jpg" alt="GFG" class="spin-on-hover">
+      </div>
+      <h3>Ranked Top 2 on GFG Practice Platform</h3>
+      <p>Climbed to the top 2 institute rank on GeeksForGeeks Practice through consistent DSA problem-solving.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[5] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(5, true)"
+         (mouseleave)="setHoverState(5, false)"
+         (touchstart)="setHoverState(5, true)"
+         (touchend)="setHoverState(5, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/examlogo.jpg" alt="Exams" class="spin-on-hover">
+      </div>
+      <h3>Cleared JEE-Mains, MHT-CET, and JEE-Advanced</h3>
+      <p>Passed JEE-Mains (90th percentile), MHT-CET (95th percentile), and appeared for JEE-Advanced.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[6] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(6, true)"
+         (mouseleave)="setHoverState(6, false)"
+         (touchstart)="setHoverState(6, true)"
+         (touchend)="setHoverState(6, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/maharashtraboard.jpg" alt="HSC" class="spin-on-hover">
+      </div>
+      <h3>Scored 79.38% in 12th (H.S.C) Boards</h3>
+      <p>Achieved 79.38% in 12th (H.S.C) Boards in Science stream, with 92% in Mathematics.</p>
+    </div>
+    <div class="achievement card" #achievementCard
+         [@cardHover]="hoverStates[7] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(7, true)"
+         (mouseleave)="setHoverState(7, false)"
+         (touchstart)="setHoverState(7, true)"
+         (touchend)="setHoverState(7, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/maharashtraboard.jpg" alt="SSC" class="spin-on-hover">
+      </div>
+      <h3>Scored 93.20% in 10th (S.S.C) Boards</h3>
+      <p>Attained 93.20% in 10th (S.S.C) Boards examination.</p>
+    </div>
+  </div>
+</section>
