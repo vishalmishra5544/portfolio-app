@@ -26,12 +26,12 @@ header {
         margin: 0;
 
         a {
-          color: #8a2be2; // Match the existing h1 color
-          text-decoration: none; // Remove underline
+          color: #8a2be2;
+          text-decoration: none;
           transition: color 0.3s ease;
 
           &:hover {
-            color: #00b7ff; // Match the active link color on hover
+            color: #00b7ff;
           }
         }
       }
@@ -61,10 +61,11 @@ header {
         a {
           color: white;
           font-size: 1rem;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 0.6rem; // Reduced padding to save space
           border-radius: 4px;
           transition: background 0.3s;
           text-decoration: none;
+          white-space: nowrap; // Prevent text wrapping (e.g., "Coding Profile")
 
           &.active {
             background: #00b7ff;
@@ -80,8 +81,9 @@ header {
 
     .desktop-menu {
       display: flex;
-      gap: 2rem;
-      margin-left: 2rem; // Space between name and options
+      gap: 1rem; // Reduced gap from 2rem to 1rem to save space
+      margin-left: 1.5rem; // Slightly reduced margin-left
+      flex-wrap: nowrap; // Prevent wrapping of menu items
     }
 
     .mobile-menu {
@@ -96,12 +98,12 @@ header {
 
       .nav-header {
         .menu-toggle {
-          display: block; // Show hamburger menu on mobile
+          display: block;
         }
       }
 
       .desktop-menu {
-        display: none; // Hide desktop menu on mobile
+        display: none;
       }
 
       .mobile-menu {

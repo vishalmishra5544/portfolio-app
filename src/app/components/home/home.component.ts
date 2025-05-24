@@ -1,12 +1,12 @@
 import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // Import RouterModule
-import { trigger, transition, style, animate, stagger, query } from '@angular/animations';
+import { RouterModule } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule], // Add RouterModule to imports
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
@@ -18,7 +18,7 @@ import { trigger, transition, style, animate, stagger, query } from '@angular/an
     ]),
     trigger('timelineAnimation', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(-100px)', filter: 'blur(3px)' }), // Start further left
+        style({ opacity: 0, transform: 'translateX(-100px)', filter: 'blur(3px)' }),
         animate('0.6s ease-out', style({ opacity: 1, transform: 'translateX(0)', filter: 'blur(0)' })),
       ]),
     ]),
@@ -29,11 +29,11 @@ export class HomeComponent implements AfterViewInit {
   @ViewChildren('timelineWrapper') timelineWrapper!: QueryList<ElementRef>;
 
   timelineData = [
-    { date: '2016-06-01', title: '2016-2017: High School', description: 'Excelled with 93.20% at Manav Mandir High School, Mumbai.', img: 'school.jpg' },
-    { date: '2018-06-01', title: '2018-2019: Junior College', description: 'Scored 79.38% in Science Stream with 92% in Mathematics at Navneet Jr. College, Mumbai.', img: 'college.jpg' },
-    { date: '2016-06-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams like JEE-Mains, MHT-CET.', img: 'examlogo.jpg' },
-    { date: '2019-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College (Affiliated to Mumbai University), Mumbai.', img: 'university.jpg' },
-    { date: '2016-06-01', title: '2022: Cleared GATE-CS Exam', description: 'Cleared GATE-CS exam and secured AIR-3112 during my 3rd year of College.', img: 'gatelogo.jpg' },
+    { date: '2016-06-01', title: '2016-2017: High School', description: 'Excelled with 93.20% during high school phase from Manav Mandir High School in Mumbai.', img: 'school.jpg' },
+    { date: '2018-06-01', title: '2018-2019: Junior College', description: 'Scored 79.38% in Science Stream with 92% in Mathematics from Navneet Jr. College in Mumbai.', img: 'college.jpg' },
+    { date: '2016-06-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams for engineering entrance qualification like JEE-Mains, MHT-CET.', img: 'examlogo.jpg' },
+    { date: '2019-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College (Affiliated to Mumbai University) in Mumbai.', img: 'university.jpg' },
+    { date: '2016-06-01', title: '2022: Cleared GATE-CS Exam', description: 'Cleared GATE-Computer Science exam and secured AIR-3112 during my 3rd year of College.', img: 'gatelogo.jpg' },
     { date: '2023-01-01', title: '01/2023-04/2023: Software Engineer Intern at TSS Consultancy', description: 'Stepped into industry-level development and developed Desktop based applications from scratch using WinForm in C# and .NET with SQL Server Database connection, Excel/PDF generation, etc.', img: 'tsslogo.jpg' },
     { date: '2023-05-01', title: '05/2023-08/2024: Associate Software Engineer at TSS Consultancy', description: 'Gained more exposure in RESTful APIs development and crafted multiple backend .NET APIs and Angular frontend applications at TSS Consultancy.', img: 'tsslogo.jpg' },
     { date: '2024-08-01', title: '08/2024-Present: Associate Software Engineer-AI at TSS Consultancy', description: 'Entered AI domain to fulfill organization need for AI-based APIs and developed computer vision APIs with YOLO and Flask alongside Java Backend systems.', img: 'tsslogo.jpg' },
@@ -42,7 +42,6 @@ export class HomeComponent implements AfterViewInit {
   constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    // Card visibility observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -59,7 +58,6 @@ export class HomeComponent implements AfterViewInit {
       observer.observe(item.nativeElement);
     });
 
-    // Progress bar animation (vertical scroll)
     const wrapper = this.timelineWrapper.first.nativeElement;
     const progressBar = wrapper.querySelector('.progress-bar');
     const timeline = wrapper.querySelector('.timeline');
@@ -73,12 +71,10 @@ export class HomeComponent implements AfterViewInit {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      // Calculate the start and end of the timeline
       const timelineStart = firstItemRect.top + scrollTop;
       const timelineEnd = lastItemRect.bottom + scrollTop;
       const timelineHeight = timelineEnd - timelineStart;
 
-      // Calculate scroll position relative to the timeline
       const scrollPosition = Math.max(scrollTop + windowHeight - timelineStart, 0);
       const progress = Math.min(scrollPosition / timelineHeight, 1) * 100;
 

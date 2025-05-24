@@ -1,14 +1,14 @@
 import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router'; // Ensure NavigationEnd is imported
+import { Router, NavigationEnd } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
-  selector: 'app-interests',
+  selector: 'app-coding-profile',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './interests.component.html',
-  styleUrls: ['./interests.component.scss'],
+  templateUrl: './coding-profile.component.html',
+  styleUrls: ['./coding-profile.component.scss'],
   animations: [
     trigger('cardHover', [
       state('default', style({
@@ -25,15 +25,15 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
   ],
 })
-export class InterestsComponent implements AfterViewInit, OnDestroy {
-  @ViewChildren('interestCard') interestCards!: QueryList<ElementRef>;
+export class CodingProfileComponent implements AfterViewInit, OnDestroy {
+  @ViewChildren('profileCard') profileCards!: QueryList<ElementRef>;
 
-  hoverStates: { [key: number]: boolean } = {}; // Property defined
+  hoverStates: { [key: number]: boolean } = {};
   private observer: IntersectionObserver | null = null;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd && event.url === '/interests') {
+      if (event instanceof NavigationEnd && event.url === '/coding-profile') {
         this.resetAndObserve();
       }
     });
@@ -45,7 +45,7 @@ export class InterestsComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.observer) {
-      this.interestCards.forEach((card) => {
+      this.profileCards.forEach((card) => {
         this.observer!.unobserve(card.nativeElement);
       });
       this.observer = null;
@@ -53,7 +53,7 @@ export class InterestsComponent implements AfterViewInit, OnDestroy {
   }
 
   private resetAndObserve() {
-    this.interestCards.forEach((card) => {
+    this.profileCards.forEach((card) => {
       card.nativeElement.classList.remove('visible');
     });
     this.setupIntersectionObserver();
@@ -61,7 +61,7 @@ export class InterestsComponent implements AfterViewInit, OnDestroy {
 
   private setupIntersectionObserver() {
     if (this.observer) {
-      this.interestCards.forEach((card) => {
+      this.profileCards.forEach((card) => {
         this.observer!.unobserve(card.nativeElement);
       });
     }
@@ -78,12 +78,12 @@ export class InterestsComponent implements AfterViewInit, OnDestroy {
       { threshold: 0.2, rootMargin: '0px' }
     );
 
-    this.interestCards.forEach((card) => {
+    this.profileCards.forEach((card) => {
       this.observer!.observe(card.nativeElement);
     });
   }
 
-  setHoverState(index: number, isHovered: boolean) { // Method defined
+  setHoverState(index: number, isHovered: boolean) {
     this.hoverStates[index] = isHovered;
   }
 }
