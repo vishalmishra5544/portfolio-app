@@ -1,4 +1,4 @@
-.interests {
+.coding-profile {
   padding: 4rem 1rem;
   background: #f8f9fa;
   min-height: 100vh;
@@ -10,13 +10,13 @@
     color: #1a2b49;
   }
 
-  .interest-grid {
+  .profile-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     padding: 0 1rem;
 
-    .interest {
+    .profile {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -83,10 +83,10 @@
       font-size: 2rem;
     }
 
-    .interest-grid {
+    .profile-grid {
       gap: 1.5rem;
 
-      .interest {
+      .profile {
         padding: 1rem;
 
         .image-wrapper {

@@ -1,20 +1,53 @@
-<section class="interests" @gridAnimation>
-    <h2>My Interests</h2>
-    <div class="interest-grid">
-      <div class="interest card">
-        <img src="assets/images/ai-tech.jpg" alt="AI">
-        <h3>Artificial Intelligence</h3>
-        <p>Exploring computer vision and machine learning innovations.</p>
+<section class="interests">
+  <h2>My Interests</h2>
+  <div class="interest-grid">
+    <div class="interest card" #interestCard
+         [@cardHover]="hoverStates[0] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(0, true)"
+         (mouseleave)="setHoverState(0, false)"
+         (touchstart)="setHoverState(0, true)"
+         (touchend)="setHoverState(0, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/ailogo.jpg" alt="AI" class="spin-on-hover">
       </div>
-      <div class="interest card">
-        <img src="assets/images/coding.jpg" alt="Coding">
-        <h3>Software Development</h3>
-        <p>Building scalable apps with Java, .NET, and Angular.</p>
-      </div>
-      <div class="interest card">
-        <img src="assets/images/devops.jpg" alt="DevOps">
-        <h3>DevOps</h3>
-        <p>Streamlining workflows with Docker and Kubernetes.</p>
-      </div>
+      <h3>Artificial Intelligence</h3>
+      <p>Exploring various AI/ML developments specially computer vision and machine learning innovations for Intelligent Systems.</p>
     </div>
-  </section>
+    <div class="interest card" #interestCard
+         [@cardHover]="hoverStates[1] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(1, true)"
+         (mouseleave)="setHoverState(1, false)"
+         (touchstart)="setHoverState(1, true)"
+         (touchend)="setHoverState(1, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/codinglogo.jpg" alt="Coding" class="spin-on-hover">
+      </div>
+      <h3>Software Development</h3>
+      <p>Building scalable apps with backend comprising Java, .NET, Python and fronend with Angular.</p>
+    </div>
+    <div class="interest card" #interestCard
+         [@cardHover]="hoverStates[1] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(1, true)"
+         (mouseleave)="setHoverState(1, false)"
+         (touchstart)="setHoverState(1, true)"
+         (touchend)="setHoverState(1, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/systemdesign.jpg" alt="System Design" class="spin-on-hover">
+      </div>
+      <h3>Robust System Architecture Design</h3>
+      <p>Exploring robust solutions for system architectures and designing based on use cases.</p>
+    </div>
+    <div class="interest card" #interestCard
+         [@cardHover]="hoverStates[2] ? 'hovered' : 'default'"
+         (mouseenter)="setHoverState(2, true)"
+         (mouseleave)="setHoverState(2, false)"
+         (touchstart)="setHoverState(2, true)"
+         (touchend)="setHoverState(2, false)">
+      <div class="image-wrapper">
+        <img src="assets/images/cloudlogo.png" alt="Cloud Computing Services" class="spin-on-hover">
+      </div>
+      <h3>Cloud Computing Services</h3>
+      <p>Streamlining deployments and orchestrations workflows with Docker and Kubernetes.</p>
+    </div>
+  </div>
+</section>

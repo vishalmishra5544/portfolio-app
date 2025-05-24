@@ -6,12 +6,14 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { EducationComponent } from './components/education/education.component';
 import { InterestsComponent } from './components/interests/interests.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CodingProfileComponent } from './components/coding-profile/coding-profile.component'; 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'career', component: CareerComponent },
   { path: 'achievements', component: AchievementsComponent },
-  { path: 'projects', component: ProjectsComponent },
+  { path: 'projects', component: ProjectsComponent }, 
+  { path: 'coding-profile', component: CodingProfileComponent },
   { path: 'education', component: EducationComponent },
   { path: 'interests', component: InterestsComponent },
   { path: 'contact', component: ContactComponent },
