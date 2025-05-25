@@ -29,10 +29,10 @@ export class HomeComponent implements AfterViewInit {
   @ViewChildren('timelineWrapper') timelineWrapper!: QueryList<ElementRef>;
 
   timelineData = [
-    { date: '2016-06-01', title: '2016-2017: High School', description: 'Excelled with 93.20% during high school phase from Manav Mandir High School in Mumbai.', img: 'school.jpg' },
-    { date: '2018-06-01', title: '2018-2019: Junior College', description: 'Scored 79.38% in Science Stream with 92% in Mathematics from Navneet Jr. College in Mumbai.', img: 'college.jpg' },
-    { date: '2016-06-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams for engineering entrance qualification like JEE-Mains, MHT-CET.', img: 'examlogo.jpg' },
-    { date: '2019-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College (Affiliated to Mumbai University) in Mumbai.', img: 'university.jpg' },
+    { date: '2017-03-01', title: '2016-2017: High School', description: 'Excelled with 93.20% during high school phase from Manav Mandir High School in Mumbai.', img: 'school.jpg' },
+    { date: '2019-02-01', title: '2018-2019: Junior College', description: 'Scored 79.38% in Science Stream with 92% in Mathematics from Navneet Jr. College in Mumbai.', img: 'college.jpg' },
+    { date: '2016-05-01', title: '2019: Cleared Competitive Exams', description: 'Cleared competitive Exams for engineering entrance qualification like JEE-Mains, MHT-CET.', img: 'examlogo.jpg' },
+    { date: '2023-06-01', title: '2019-2023: B.E. Computer Engineering', description: 'Graduated with 9.6 GPA from Atharva College (Affiliated to Mumbai University) in Mumbai.', img: 'university.jpg' },
     { date: '2022-02-05', title: '2022: Cleared GATE-CS Exam', description: 'Cleared GATE-Computer Science exam and secured AIR-3112 during my 3rd year of College.', img: 'gatelogo.jpg' },
     { date: '2023-01-01', title: '01/2023-04/2023: Software Engineer Intern at TSS Consultancy', description: 'Stepped into industry-level development and developed Desktop based applications from scratch using WinForm in C# and .NET with SQL Server Database connection, Excel/PDF generation, etc.', img: 'tsslogo.jpg' },
     { date: '2023-05-01', title: '05/2023-08/2024: Associate Software Engineer at TSS Consultancy', description: 'Gained more exposure in RESTful APIs development and crafted multiple backend .NET APIs and Angular frontend applications at TSS Consultancy.', img: 'tsslogo.jpg' },
