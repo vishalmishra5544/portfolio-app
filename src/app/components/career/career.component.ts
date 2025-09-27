@@ -1,4 +1,11 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, Renderer2 } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+  Renderer2,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 
@@ -11,8 +18,15 @@ import { trigger, transition, style, animate } from '@angular/animations';
   animations: [
     trigger('timelineAnimation', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(-100px)', filter: 'blur(3px)' }),
-        animate('0.6s ease-out', style({ opacity: 1, transform: 'translateX(0)', filter: 'blur(0)' })),
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)',
+          filter: 'blur(3px)',
+        }),
+        animate(
+          '0.6s ease-out',
+          style({ opacity: 1, transform: 'translateX(0)', filter: 'blur(0)' })
+        ),
       ]),
     ]),
   ],
@@ -23,7 +37,15 @@ export class CareerComponent implements AfterViewInit {
 
   roles = [
     {
-      date: '08/2024-Present',
+      date: '06/2025-Present',
+      title: 'Software Engineer-AI',
+      description: [
+        'Developing AI based Onboarding Solutions with Various Integrations involving CKYC, DIGILOCKER, NPCI.etc',
+        'Worked on various Whatsapp Business API based End to End solutions to enable Digital Onboarding Journey via Whatsapp Bot.',
+      ],
+    },
+    {
+      date: '08/2024-06/2025',
       title: 'Associate Software Engineer-AI',
       description: [
         'Developed computer vision APIs with YOLO and Flask alongside Java Backend systems.',
@@ -94,7 +116,10 @@ export class CareerComponent implements AfterViewInit {
       const timelineHeight = timelineEnd - timelineStart;
 
       // Calculate scroll position relative to the timeline
-      const scrollPosition = Math.max(scrollTop + windowHeight - timelineStart, 0);
+      const scrollPosition = Math.max(
+        scrollTop + windowHeight - timelineStart,
+        0
+      );
       const progress = Math.min(scrollPosition / timelineHeight, 1) * 100;
 
       this.renderer.setStyle(progressBar, 'height', `${progress}%`);
